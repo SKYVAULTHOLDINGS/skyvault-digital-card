@@ -6,7 +6,7 @@
   <title>SkyVault Holdings LLC | Digital Business Card</title>
   <meta name="description" content="SkyVault Holdings LLC digital business card."/>
   <style>
-    :root { --ink:#1f3b53; --muted:#5b6b79; --bg:#ffffff; --card:#f7f9fb; --line:#e6edf2; }
+    :root { --ink:#1f3b53; --muted:#5b6b79; --bg:#ffffff; --card:#f7f9fb; --line:#e6edf2; --accent:#0b5fa5; }
     *{box-sizing:border-box}
     body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--ink);}
     .wrap{max-width:900px;margin:0 auto;padding:18px;}
@@ -18,7 +18,7 @@
     .actions{display:flex;gap:10px;flex-wrap:wrap;}
     .btn{padding:10px 12px;border-radius:12px;border:1px solid var(--line);text-decoration:none;color:var(--ink);background:var(--card);font-weight:600;font-size:14px;display:inline-block;}
     .btn.primary{background:var(--ink);color:#fff;border-color:var(--ink);}
-    .btn.accent{background:#0b5fa5;color:#fff;border-color:#0b5fa5;}
+    .btn.accent{background:var(--accent);color:#fff;border-color:var(--accent);}
 
     .grid{margin-top:14px;display:grid;grid-template-columns:1fr;gap:14px;}
     .panel{border:1px solid var(--line);border-radius:14px;background:#fff;padding:16px;}
@@ -42,9 +42,26 @@
     .callout{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;}
     .ctaRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;}
 
+    /* RFQ form */
+    .form{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+    .field{display:flex;flex-direction:column;gap:6px;}
+    .field label{font-size:13px;color:var(--muted);}
+    .field input,.field select,.field textarea{
+      border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:14px;font-family:inherit;
+      background:#fff;color:var(--ink);
+    }
+    .field textarea{min-height:110px;resize:vertical;}
+    .form .full{grid-column:1 / -1;}
+    .hint{font-size:12px;color:var(--muted);margin-top:8px;}
+
     .footer{margin:14px 0 0;text-align:center;color:var(--muted);font-size:12px;}
 
-    @media (max-width:720px){ .kv{grid-template-columns:100px 1fr;} .two{grid-template-columns:1fr;} .brand img{width:76px;} }
+    @media (max-width:720px){
+      .kv{grid-template-columns:100px 1fr;}
+      .two{grid-template-columns:1fr;}
+      .form{grid-template-columns:1fr;}
+      .brand img{width:76px;}
+    }
   </style>
 </head>
 <body>
@@ -61,7 +78,7 @@
       <a class="btn primary" href="Stefan_Muniz_Varholik_SkyVault_GH.vcf" download>Add to Contacts</a>
       <a class="btn" href="tel:+15104241760">Call</a>
       <a class="btn" href="mailto:skyvaultholdings@gmail.com">Email</a>
-      <a class="btn accent" href="mailto:skyvaultholdings@gmail.com?subject=Request%20for%20Quote%20%28RFQ%29%20%E2%80%93%20SkyVault%20Holdings%20LLC&body=Hello%20SkyVault%20Team%2C%0A%0AI%E2%80%99d%20like%20to%20request%20a%20quote%20for%20the%20following%3A%0A%0ASite/Location%3A%0APoint%20of%20Contact%3A%0APhone/Email%3A%0A%0AProject%20Type%20%28select%20one%29%3A%20Contractor%20/%20Facilities%20/%20Electrical%20/%20Security%20%26%20Access%20/%20ATM%20/%20Other%0ADescription%20of%20Need%3A%0ADesired%20Timeline%3A%0ASite%20Access%20Constraints%20%28hours%2C%20escorts%2C%20security%20requirements%29%3A%0A%0APhotos/Plans%20Available%3A%20Yes%20/%20No%0A%0AThank%20you%2C">Request a Quote</a>
+      <a class="btn accent" href="#rfq">Request a Quote</a>
     </div>
   </div>
 
@@ -74,12 +91,10 @@
         We support owners and operators with electrical systems, secure access solutions, equipment installation, and operational services—delivered directly or through licensed partners as required.
       </p>
       <div class="ctaRow">
-        <a class="btn accent" href="mailto:skyvaultholdings@gmail.com?subject=Request%20for%20Quote%20%28RFQ%29%20%E2%80%93%20SkyVault%20Holdings%20LLC&body=Hello%20SkyVault%20Team%2C%0A%0AI%E2%80%99d%20like%20to%20request%20a%20quote%20for%20the%20following%3A%0A%0ASite/Location%3A%0APoint%20of%20Contact%3A%0APhone/Email%3A%0A%0AProject%20Type%20%28select%20one%29%3A%20Contractor%20/%20Facilities%20/%20Electrical%20/%20Security%20%26%20Access%20/%20ATM%20/%20Other%0ADescription%20of%20Need%3A%0ADesired%20Timeline%3A%0ASite%20Access%20Constraints%20%28hours%2C%20escorts%2C%20security%20requirements%29%3A%0A%0APhotos/Plans%20Available%3A%20Yes%20/%20No%0A%0AThank%20you%2C">Request a Quote</a>
+        <a class="btn accent" href="#rfq">Request a Quote</a>
         <a class="btn" href="mailto:skyvaultholdings@gmail.com?subject=Project%20Inquiry%20%E2%80%93%20SkyVault%20Holdings%20LLC">General Inquiry</a>
       </div>
-      <p class="p muted" style="margin-top:10px;">
-        Tip: Include location, scope, photos, and timeline for the fastest response.
-      </p>
+      <p class="p muted" style="margin-top:10px;">Tip: Include location, scope, photos, and timeline for the fastest response.</p>
     </div>
 
     <div class="panel">
@@ -97,7 +112,7 @@
     <div class="panel">
       <div class="h">Services</div>
       <div class="tags">
-        <div class="tag">Contractor Services</div><div class="tag">Facilities Support</div><div class="tag">Electrical Systems (HV / LV)</div><div class="tag">Security Systems</div><div class="tag">Access Control</div><div class="tag">ATM Ownership & Placement</div><div class="tag">Equipment Installation</div><div class="tag">Specialty Services</div>
+        <div class="tag">Contractor Services</div><div class="tag">Facilities Support</div><div class="tag">Electrical Systems (HV / LV)</div><div class="tag">Security Systems</div><div class="tag">Access Control</div><div class="tag">ATM Ownership & Placement</div><div class="tag">Equipment Installation</div><div class="tag">Specialty Services</div><div class="tag">Custom Work / Special Projects</div>
       </div>
     </div>
 
@@ -109,7 +124,7 @@
           <li>Electrical systems support (HV / LV) and equipment tie-ins (as applicable)</li>
           <li>Security, access control, and controlled-entry solutions</li>
           <li>ATM ownership, placement coordination, and servicing support</li>
-          <li>Equipment installation, commissioning, and specialty projects</li>
+          <li>Equipment installation, commissioning, and custom/special projects</li>
         </ul>
       </div>
 
@@ -123,6 +138,86 @@
           <li>Specialty and high-security environments</li>
         </ul>
       </div>
+    </div>
+
+    <div class="panel" id="rfq">
+      <div class="h">Request a Quote</div>
+      <p class="p muted" style="margin-bottom:12px;">
+        Choose options below and tap “Create Email” to open your email app with a pre-filled request.
+      </p>
+
+      <div class="form">
+        <div class="field">
+          <label for="serviceType">Service Type</label>
+          <select id="serviceType">
+            <option value="Contractor Services">Contractor Services</option>
+            <option value="Facilities Support">Facilities Support</option>
+            <option value="Electrical Systems (HV / LV)">Electrical Systems (HV / LV)</option>
+            <option value="Security Systems">Security Systems</option>
+            <option value="Access Control">Access Control</option>
+            <option value="ATM Ownership & Placement">ATM Ownership & Placement</option>
+            <option value="Equipment Installation">Equipment Installation</option>
+            <option value="Custom Work / Special Projects">Custom Work / Special Projects</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="urgency">Timeline / Urgency</label>
+          <select id="urgency">
+            <option value="Routine (1–4 weeks)">Routine (1–4 weeks)</option>
+            <option value="Soon (within 1 week)">Soon (within 1 week)</option>
+            <option value="Urgent (24–72 hours)">Urgent (24–72 hours)</option>
+            <option value="Scheduled / Planned">Scheduled / Planned</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="location">Site / Location</label>
+          <input id="location" type="text" placeholder="City, address, or facility name"/>
+        </div>
+
+        <div class="field">
+          <label for="contactName">Your Name / Company</label>
+          <input id="contactName" type="text" placeholder="Name and organization"/>
+        </div>
+
+        <div class="field">
+          <label for="contactInfo">Best Contact Info</label>
+          <input id="contactInfo" type="text" placeholder="Phone and/or email"/>
+        </div>
+
+        <div class="field">
+          <label for="siteAccess">Site Access Constraints</label>
+          <select id="siteAccess">
+            <option value="None / Standard access">None / Standard access</option>
+            <option value="Escort required">Escort required</option>
+            <option value="Badge / security clearance required">Badge / security clearance required</option>
+            <option value="After-hours only">After-hours only</option>
+            <option value="Limited access windows">Limited access windows</option>
+          </select>
+        </div>
+
+        <div class="field full">
+          <label for="details">Scope / Description</label>
+          <textarea id="details" placeholder="Briefly describe what you need, quantities, equipment, and any constraints."></textarea>
+        </div>
+
+        <div class="field full">
+          <label for="photos">Photos / Plans Available</label>
+          <select id="photos">
+            <option value="Yes (I can attach photos/plans)">Yes (I can attach photos/plans)</option>
+            <option value="No">No</option>
+            <option value="Not sure yet">Not sure yet</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="ctaRow">
+        <a class="btn accent" id="createEmail" href="#">Create Email</a>
+        <a class="btn" href="mailto:skyvaultholdings@gmail.com?subject=Project%20Inquiry%20%E2%80%93%20SkyVault%20Holdings%20LLC">General Inquiry</a>
+      </div>
+      <div class="hint">Note: This form creates an email draft in your email app (it does not submit data from the website).</div>
     </div>
 
     <div class="panel">
@@ -147,5 +242,53 @@
 
   <div class="footer">© 2026 SkyVault Holdings LLC</div>
 </div>
+
+<script>
+(function() {
+  function enc(s) { return encodeURIComponent(s || ""); }
+
+  function buildEmail() {
+    var serviceType = document.getElementById("serviceType").value;
+    var urgency = document.getElementById("urgency").value;
+    var location = document.getElementById("location").value;
+    var contactName = document.getElementById("contactName").value;
+    var contactInfo = document.getElementById("contactInfo").value;
+    var siteAccess = document.getElementById("siteAccess").value;
+    var details = document.getElementById("details").value;
+    var photos = document.getElementById("photos").value;
+
+    var subject = "RFQ – " + serviceType + " – " + (location ? location : "Site TBD");
+
+    var body = [
+      "Hello SkyVault Team,",
+      "",
+      "I’d like to request a quote for the following:",
+      "",
+      "Service Type: " + serviceType,
+      "Timeline/Urgency: " + urgency,
+      "Site/Location: " + (location || ""),
+      "Your Name/Company: " + (contactName || ""),
+      "Best Contact Info: " + (contactInfo || ""),
+      "Site Access Constraints: " + siteAccess,
+      "Photos/Plans Available: " + photos,
+      "",
+      "Scope / Description:",
+      (details || ""),
+      "",
+      "Thank you,"
+    ].join("\n");
+
+    var link = "mailto:skyvaultholdings@gmail.com?subject=" + enc(subject) + "&body=" + enc(body);
+    return link;
+  }
+
+  var a = document.getElementById("createEmail");
+  a.addEventListener("click", function(e) {
+    e.preventDefault();
+    window.location.href = buildEmail();
+  });
+})();
+</script>
+
 </body>
 </html>
